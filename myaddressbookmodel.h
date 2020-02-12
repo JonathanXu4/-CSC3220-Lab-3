@@ -16,16 +16,18 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
 
     void openFile(QString filePath);
-    QString getPhoneNumber(int index);
+    QString getPhoneNumber(int index, int index2);
 
     void setFilterString(QString fStr);
 
 private:
-    std::vector<QString> firstNames;
+    std::vector<QString> names;
     std::vector<QString> lastNames;
     std::vector<QString> phoneNumbers;
 
     std::vector<int> filteredIndex;
+
+    QString toSequence(QString name);
 };
 
 #endif // MYADDRESSBOOKMODEL_H

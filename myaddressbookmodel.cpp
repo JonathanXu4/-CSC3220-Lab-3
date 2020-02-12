@@ -26,16 +26,12 @@ QVariant MyAddressBookModel::data(const QModelIndex &index, int role) const
     if (role == Qt::DisplayRole) {
         switch(index.column()) {
         case 0:
-            return firstNames.at(filteredIndex[index.row()]);
+            return names.at(filteredIndex[index.row()]);
         case 1:
             return lastNames.at(filteredIndex[index.row()]);
         case 2:
             return phoneNumbers.at(filteredIndex[index.row()]);
         }
-
-//        return QString("Row%1, Column%2")
-//                .arg(index.row())
-//                .arg(index.column());
     }
     return QVariant();
 }
@@ -49,7 +45,7 @@ void MyAddressBookModel::openFile(QString filePath)
     }
 
     QTextStream in(&file);
-    firstNames.clear();
+    names.clear();
     lastNames.clear();
     phoneNumbers.clear();
 
@@ -64,9 +60,11 @@ void MyAddressBookModel::openFile(QString filePath)
         }
         std::cout << std::endl;
 
-        firstNames.push_back(fields[0]);
-        lastNames.push_back(fields[1]);
-        phoneNumbers.push_back(fields[2]);
+        names.push_back(fields[0] + " " + fields[1]);
+
+        lastNames.push_back(fields[7]);
+
+        phoneNumbers.push_back(fields[8]);
 
         filteredIndex.push_back(i);
     }
@@ -75,21 +73,49 @@ void MyAddressBookModel::openFile(QString filePath)
     emit layoutChanged();
 }
 
-QString MyAddressBookModel::getPhoneNumber(int index)
+// Returns phone number 1 if phone number 1 or the name is clicked.
+// Otherwise returns phone number 2
+QString MyAddressBookModel::getPhoneNumber(int index, int index2)
 {
+    if (index2 == 0 || index2 == 1)
+        return lastNames.at(filteredIndex[index]);
     return phoneNumbers.at(filteredIndex[index]);
 }
 
+// Filters the address book based on numbers typed in
 void MyAddressBookModel::setFilterString(QString fStr)
 {
     filteredIndex.clear();
 
     for (int i = 0; i < phoneNumbers.size(); i++) {
-        if (phoneNumbers[i].startsWith(fStr)) {
+        if (phoneNumbers[i].startsWith(fStr) || lastNames[i].startsWith(fStr) || toSequence(names[i]).startsWith(fStr.remove("-"))) {
             filteredIndex.push_back(i);
-            //std::cout << phoneNumbers[i].toStdString() << std::endl;
         }
     }
 
     emit layoutChanged();
+}
+
+// Takes in a QString representing a name and returns its phone number equivalent
+QString MyAddressBookModel::toSequence(QString name) {
+    QString seq = "";
+    for (int i = 0; i < name.length(); i++) {
+        if (name[i].toLower() == "a" || name[i].toLower() == "b" || name[i].toLower() == "c")
+            seq += "2";
+        else if (name[i].toLower() == "d" || name[i].toLower() == "e" || name[i].toLower() == "f")
+            seq += "3";
+        else if (name[i].toLower() == "g" || name[i].toLower() == "h" || name[i].toLower() == "i")
+            seq += "4";
+        else if (name[i].toLower() == "j" || name[i].toLower() == "k" || name[i].toLower() == "l")
+            seq += "5";
+        else if (name[i].toLower() == "m" || name[i].toLower() == "n" || name[i].toLower() == "o")
+            seq += "6";
+        else if (name[i].toLower() == "p" || name[i].toLower() == "q" || name[i].toLower() == "r" || name[i].toLower() == "s")
+            seq += "7";
+        else if (name[i].toLower() == "t" || name[i].toLower() == "u" || name[i].toLower() == "v")
+            seq += "8";
+        else if (name[i].toLower() == "w" || name[i].toLower() == "x" || name[i].toLower() == "y" || name[i].toLower() == "z")
+            seq += "9";
+    }
+    return seq;
 }

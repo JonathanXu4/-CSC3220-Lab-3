@@ -4,6 +4,7 @@
 #include <QFileDialog>
 #include <iostream>
 #include <QPixmap>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -38,7 +39,7 @@ void MainWindow::on_actionOpen_an_Address_Book_triggered()
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
     std::cout << index.row() << "," << index.column() << std::endl;
-    ui->numberBox->setText((myModel->getPhoneNumber(index.row())));
+    ui->numberBox->setText((myModel->getPhoneNumber(index.row(), index.column())));
 }
 
 void MainWindow::setNumber(QString num) {
@@ -46,6 +47,7 @@ void MainWindow::setNumber(QString num) {
         callNumber = callNumber + "-";
     if (callNumber.length() < 12)
         callNumber = callNumber + num;
+    myModel->setFilterString(callNumber);
     ui->numberBox->setText(callNumber);
 }
 
@@ -86,7 +88,6 @@ void MainWindow::on_seven_clicked()
 
 void MainWindow::on_eight_clicked()
 {
-    myModel->setFilterString("8");
     setNumber("8");
 }
 
@@ -116,5 +117,18 @@ void MainWindow::on_Delete_clicked()
     if (callNumber.length() == 5 || callNumber.length() == 9)
         callNumber = callNumber.left(callNumber.length()-1);
     callNumber = callNumber.left(callNumber.length()-1);
+    myModel->setFilterString(callNumber);
     ui->numberBox->setText(callNumber);
+
+}
+
+void MainWindow::on_Call_clicked()
+{
+    if (callNumber.length() == 12) {
+        QMessageBox::information(this,tr(""), ("Now calling " + callNumber));
+        callNumber = "";
+        ui->numberBox->setText(callNumber);
+    } else {
+        QMessageBox::information(this,tr("Error"), tr("Invalid number"));
+    }
 }
