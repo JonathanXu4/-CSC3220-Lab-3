@@ -31,15 +31,14 @@ void MainWindow::on_actionOpen_an_Address_Book_triggered()
         tr("Open Address Book"), "",
         tr("Address Book(*.csv);;All Files (*)"));
 
-    std::cout << fileName.toStdString() << std::endl;
-
     myModel->openFile(fileName);
 }
 
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
-    std::cout << index.row() << "," << index.column() << std::endl;
-    ui->numberBox->setText((myModel->getPhoneNumber(index.row(), index.column())));
+    callNumber = (myModel->getPhoneNumber(index.row(), index.column()));
+    myModel->setFilterString(callNumber);
+    ui->numberBox->setText(callNumber);
 }
 
 void MainWindow::setNumber(QString num) {
@@ -128,6 +127,7 @@ void MainWindow::on_Call_clicked()
         QMessageBox::information(this,tr(""), ("Now calling " + callNumber));
         callNumber = "";
         ui->numberBox->setText(callNumber);
+        myModel->setFilterString(callNumber);
     } else {
         QMessageBox::information(this,tr("Error"), tr("Invalid number"));
     }

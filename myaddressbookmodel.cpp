@@ -28,9 +28,9 @@ QVariant MyAddressBookModel::data(const QModelIndex &index, int role) const
         case 0:
             return names.at(filteredIndex[index.row()]);
         case 1:
-            return lastNames.at(filteredIndex[index.row()]);
+            return phoneNumbers1.at(filteredIndex[index.row()]);
         case 2:
-            return phoneNumbers.at(filteredIndex[index.row()]);
+            return phoneNumbers2.at(filteredIndex[index.row()]);
         }
     }
     return QVariant();
@@ -46,8 +46,8 @@ void MyAddressBookModel::openFile(QString filePath)
 
     QTextStream in(&file);
     names.clear();
-    lastNames.clear();
-    phoneNumbers.clear();
+    phoneNumbers1.clear();
+    phoneNumbers2.clear();
 
     for (int i = 0; !in.atEnd(); i++) {
         QString line = in.readLine();
@@ -55,16 +55,11 @@ void MyAddressBookModel::openFile(QString filePath)
 
         if (i == 0) continue;
 
-        for(int j = 0; j < fields.length(); j++) {
-            std::cout << "[" << j << "]" << fields[j].toStdString();
-        }
-        std::cout << std::endl;
-
         names.push_back(fields[0] + " " + fields[1]);
 
-        lastNames.push_back(fields[7]);
+        phoneNumbers1.push_back(fields[7]);
 
-        phoneNumbers.push_back(fields[8]);
+        phoneNumbers2.push_back(fields[8]);
 
         filteredIndex.push_back(i);
     }
@@ -78,17 +73,19 @@ void MyAddressBookModel::openFile(QString filePath)
 QString MyAddressBookModel::getPhoneNumber(int index, int index2)
 {
     if (index2 == 0 || index2 == 1)
-        return lastNames.at(filteredIndex[index]);
-    return phoneNumbers.at(filteredIndex[index]);
+        return phoneNumbers1.at(filteredIndex[index]);
+    return phoneNumbers2.at(filteredIndex[index]);
 }
 
 // Filters the address book based on numbers typed in
 void MyAddressBookModel::setFilterString(QString fStr)
 {
     filteredIndex.clear();
+    QString copy = fStr;
+    fStr.remove("-");
 
-    for (int i = 0; i < phoneNumbers.size(); i++) {
-        if (phoneNumbers[i].startsWith(fStr) || lastNames[i].startsWith(fStr) || toSequence(names[i]).startsWith(fStr.remove("-"))) {
+    for (int i = 0; i < phoneNumbers2.size(); i++) {
+        if (phoneNumbers2[i].startsWith(copy) || phoneNumbers1[i].startsWith(copy) || toSequence(names[i]).startsWith(fStr)) {
             filteredIndex.push_back(i);
         }
     }

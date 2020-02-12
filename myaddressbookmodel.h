@@ -22,8 +22,8 @@ public:
 
 private:
     std::vector<QString> names;
-    std::vector<QString> lastNames;
-    std::vector<QString> phoneNumbers;
+    std::vector<QString> phoneNumbers1;
+    std::vector<QString> phoneNumbers2;
 
     std::vector<int> filteredIndex;
 
