@@ -63,7 +63,8 @@
 </string>
     </property>
     <property name="text">
-     <string>8</string>
+     <string>8
+TUV</string>
     </property>
    </widget>
    <widget class="QTableView" name="tableView">
@@ -147,7 +148,8 @@
 </string>
     </property>
     <property name="text">
-     <string>7</string>
+     <string>7
+PQRS</string>
     </property>
    </widget>
    <widget class="QPushButton" name="nine">
@@ -170,7 +172,8 @@
 </string>
     </property>
     <property name="text">
-     <string>9</string>
+     <string>9
+WXYZ</string>
     </property>
    </widget>
    <widget class="QPushButton" name="one">
@@ -193,7 +196,8 @@
 </string>
     </property>
     <property name="text">
-     <string>1</string>
+     <string>1
+</string>
     </property>
    </widget>
    <widget class="QPushButton" name="two">
@@ -216,7 +220,8 @@
 </string>
     </property>
     <property name="text">
-     <string>2</string>
+     <string>2
+ABC</string>
     </property>
    </widget>
    <widget class="QPushButton" name="three">
@@ -239,7 +244,8 @@
 </string>
     </property>
     <property name="text">
-     <string>3</string>
+     <string>3
+DEF</string>
     </property>
    </widget>
    <widget class="QPushButton" name="four">
@@ -262,7 +268,8 @@
 </string>
     </property>
     <property name="text">
-     <string>4</string>
+     <string>4
+GHI</string>
     </property>
    </widget>
    <widget class="QPushButton" name="five">
@@ -285,7 +292,8 @@
 </string>
     </property>
     <property name="text">
-     <string>5</string>
+     <string>5
+JKL</string>
     </property>
    </widget>
    <widget class="QPushButton" name="six">
@@ -308,7 +316,8 @@
 </string>
     </property>
     <property name="text">
-     <string>6</string>
+     <string>6
+MNO</string>
     </property>
    </widget>
    <widget class="QPushButton" name="asterisk">
