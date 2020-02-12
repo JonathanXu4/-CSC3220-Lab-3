@@ -14,11 +14,11 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(250, 251, 255);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">QPushButton {border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)}</string>
+    <string notr="true">background-color: rgb(225, 241, 255);</string>
    </property>
    <widget class="QLabel" name="numberBox">
     <property name="geometry">
@@ -59,7 +59,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)</string>
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
     </property>
     <property name="text">
      <string>8</string>
@@ -79,6 +80,9 @@
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 252, 244);</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Sunken</enum>
@@ -138,6 +142,10 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
+    </property>
     <property name="text">
      <string>7</string>
     </property>
@@ -156,6 +164,10 @@
       <family>Calibri Light</family>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
     </property>
     <property name="text">
      <string>9</string>
@@ -176,6 +188,10 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
+    </property>
     <property name="text">
      <string>1</string>
     </property>
@@ -194,6 +210,10 @@
       <family>Calibri Light</family>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
     </property>
     <property name="text">
      <string>2</string>
@@ -214,6 +234,10 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
+    </property>
     <property name="text">
      <string>3</string>
     </property>
@@ -232,6 +256,10 @@
       <family>Calibri Light</family>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
     </property>
     <property name="text">
      <string>4</string>
@@ -252,6 +280,10 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
+    </property>
     <property name="text">
      <string>5</string>
     </property>
@@ -270,6 +302,10 @@
       <family>Calibri Light</family>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
     </property>
     <property name="text">
      <string>6</string>
@@ -290,6 +326,10 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
+    </property>
     <property name="text">
      <string>*</string>
     </property>
@@ -309,6 +349,10 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
+    </property>
     <property name="text">
      <string>#</string>
     </property>
@@ -327,6 +371,10 @@
       <family>Calibri Light</family>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)
+</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -390,8 +438,11 @@
     <property name="title">
      <string>Tools</string>
     </property>
+    <addaction name="separator"/>
     <addaction name="actionOpen_an_Address_Book"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
+    <addaction name="separator"/>
    </widget>
    <addaction name="menuTools"/>
   </widget>
