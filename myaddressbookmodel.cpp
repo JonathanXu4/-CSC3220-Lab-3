@@ -11,16 +11,19 @@ MyAddressBookModel::MyAddressBookModel(QObject *parent)
 
 }
 
+// Sets number of rows
 int MyAddressBookModel::rowCount(const QModelIndex &parent) const
 {
     return filteredIndex.size();
 }
 
+// Sets number of columns
 int MyAddressBookModel::columnCount(const QModelIndex &parent) const
 {
     return 3;
 }
 
+// Sets data
 QVariant MyAddressBookModel::data(const QModelIndex &index, int role) const
 {
     if (role == Qt::DisplayRole) {
@@ -36,6 +39,7 @@ QVariant MyAddressBookModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+//Attempts to open the file at the filepath
 void MyAddressBookModel::openFile(QString filePath)
 {
     QFile file(filePath);

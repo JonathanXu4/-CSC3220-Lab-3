@@ -53,6 +53,8 @@ private slots:
 
     void on_Call_clicked();
 
+    void on_actionExit_triggered();
+
 private:
     Ui::MainWindow *ui;
     MyAddressBookModel *myModel;

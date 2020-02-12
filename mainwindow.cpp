@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableView->setModel(myModel);
 
+    // ensures callNumber isn't null to begin with
     callNumber = "";
 
 }
@@ -24,7 +25,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+// Allows the user to select a csv file for use with the program.
 void MainWindow::on_actionOpen_an_Address_Book_triggered()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
@@ -34,6 +35,7 @@ void MainWindow::on_actionOpen_an_Address_Book_triggered()
     myModel->openFile(fileName);
 }
 
+// Allows the user to select phone numbers by clicking on them
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
     callNumber = (myModel->getPhoneNumber(index.row(), index.column()));
@@ -41,6 +43,7 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
     ui->numberBox->setText(callNumber);
 }
 
+// Adds the given number to the number box, adds dashes, and refreshes the box view
 void MainWindow::setNumber(QString num) {
     if (callNumber.length() == 3 || callNumber.length() == 7)
         callNumber = callNumber + "-";
@@ -50,6 +53,8 @@ void MainWindow::setNumber(QString num) {
     ui->numberBox->setText(callNumber);
 }
 
+// These methods correspond with the number pad
+// sending the related number to the number box
 void MainWindow::on_one_clicked()
 {
     setNumber("1");
@@ -111,6 +116,8 @@ void MainWindow::on_pound_clicked()
     setNumber("#");
 }
 
+// Deletes the last character and all dashes
+// refreshes the box view
 void MainWindow::on_Delete_clicked()
 {
     if (callNumber.length() == 5 || callNumber.length() == 9)
@@ -121,6 +128,7 @@ void MainWindow::on_Delete_clicked()
 
 }
 
+// If the maximum number of digits are entered, attempt to call
 void MainWindow::on_Call_clicked()
 {
     if (callNumber.length() == 12) {
@@ -131,4 +139,10 @@ void MainWindow::on_Call_clicked()
     } else {
         QMessageBox::information(this,tr("Error"), tr("Invalid number"));
     }
+}
+
+// Closes the program
+void MainWindow::on_actionExit_triggered()
+{
+    close();
 }
