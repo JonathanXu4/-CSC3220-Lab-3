@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>975</width>
-    <height>549</height>
+    <width>940</width>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,12 +20,12 @@
    <property name="styleSheet">
     <string notr="true">QPushButton {border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Circle.png)}</string>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="numberBox">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>271</width>
+      <width>301</width>
       <height>41</height>
      </rect>
     </property>
@@ -35,7 +35,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 252, 244);</string>
     </property>
     <property name="text">
      <string/>
@@ -70,8 +70,8 @@
      <rect>
       <x>320</x>
       <y>10</y>
-      <width>641</width>
-      <height>471</height>
+      <width>611</width>
+      <height>551</height>
      </rect>
     </property>
    </widget>
@@ -284,13 +284,57 @@
      <string>0</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Call">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>460</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri Light</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/Call.png)}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Delete">
+    <property name="geometry">
+     <rect>
+      <x>219</x>
+      <y>480</y>
+      <width>81</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Calibri Light</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/X.png)}</string>
+    </property>
+    <property name="text">
+     <string>    x</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>975</width>
+     <width>940</width>
      <height>26</height>
     </rect>
    </property>
