@@ -3,6 +3,7 @@
 
 #include <QFileDialog>
 #include <iostream>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
+
+    //ui->eight->setStyleSheet("border-image:url(C:/Users/Chari/Desktop/Qt/AddressBook/8.png);");
+
 }
 
 MainWindow::~MainWindow()
